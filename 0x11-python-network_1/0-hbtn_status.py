@@ -1,19 +1,15 @@
 #!/usr/bin/python3
-"""
-A script that fetches https://alx-intranet.hbtn.io/status
-using the urllib package.
-"""
+""" Fetches https://alx-intranet.hbtn.io/status """
 import urllib.request
 
-if __name__ == '__main__':
 
-    # Open the URL and fetch its content
-    url = 'https://alx-intranet.hbtn.io/status'
-    with urllib.request.urlopen(url) as response:
-        content = response.read()
+if __name__ == "__main__":
+    url = "https://alx-intranet.hbtn.io/status"
+    requrl = urllib.request.Request(url)
 
-        # Display information about the response
+    with urllib.request.urlopen(requrl) as response:
+        body = response.read()
         print("Body response:")
-        print("\t- type: {}".format(type(content)))
-        print("\t- content: {}".format(content))
-        print("\t- utf8 content: {}".format(content.decode('utf-8')))
+        print(f"\t- type: {type(body)}")
+        print(f"\t- content: {body}")
+        print(f"\t- utf8 content: {body.decode('utf-8')}")
